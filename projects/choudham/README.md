@@ -1,2 +1,2 @@
-# CS362-F2019
+# Amena Choudhury, choudham
 OSU CS362 Software Engineering II Fall 2019
