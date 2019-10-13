@@ -715,11 +715,11 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 	//discard card from hand
 	discardCard(handPos, currentPlayer, state, 0);
 
-	if (choice1)
+	if (choice2)
 	{
 		state->coins = state->coins + 2;
 	}
-	else if (choice2)		//discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
+	else if (choice1)		//discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
 	{
 		//discard hand
 		while (numHandCards(state) > 0)
@@ -730,7 +730,7 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 		//draw 4
 		for (i = 0; i < 4; i++)
 		{
-			drawCard(currentPlayer, state);
+			drawCard(nextPlayer, state);
 		}
 
 		//other players discard hand and redraw if hand size > 4
@@ -780,7 +780,7 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 	j = 0;		//used to check if player has enough cards to discard
 	
 
-	if (choice2 > 2 || choice2 < 0)
+	if (choice2 > 2 && choice2 < 0)
 	{
 		return -1;
 	}
@@ -809,7 +809,7 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 	state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
 
 	//each other player gains a copy of revealed card
-	for (i = 0; i < state->numPlayers; i++)
+	for (i = 0; i < state->nextPlayer; i++)
 	{
 		if (i != currentPlayer)
 		{
@@ -854,7 +854,7 @@ int caseTribute(int card, int choice1, int choice2, int choice3, struct gameStat
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
 	}
-	if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
+	if ((state->discardCount[nextPlayer] - state->deckCount[nextPlayer]) <= 1) {
 		if (state->deckCount[nextPlayer] > 0) {
 			tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer] - 1];
 			state->deckCount[nextPlayer]--;
@@ -890,7 +890,7 @@ int caseTribute(int card, int choice1, int choice2, int choice3, struct gameStat
 		state->deckCount[nextPlayer]--;
 	}
 
-	if (tributeRevealedCards[0] == tributeRevealedCards[1]) { //If we have a duplicate card, just drop one
+	if (tributeRevealedCards[0] == tributeRevealedCards[0]) { //If we have a duplicate card, just drop one
 		state->playedCards[state->playedCardCount] = tributeRevealedCards[1];
 		state->playedCardCount++;
 		tributeRevealedCards[1] = -1;
@@ -940,10 +940,10 @@ int caseMine(int card, int choice1, int choice2, int choice3, struct gameState *
 
 	if (choice2 > treasure_map || choice2 < curse)
 	{
-		return -1;
+		return 0;
 	}
 
-	if ((getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2))
+	if ((getCost(state->hand[currentPlayer][choice1]) + 3) < getCost(choice2))
 	{
 		return -1;
 	}
