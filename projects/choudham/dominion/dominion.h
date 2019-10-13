@@ -139,4 +139,7 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 
 int caseTribute(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 /*Function to play tribute card*/
+
+int caseMine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+/*Function to play mine card*/
 #endif
