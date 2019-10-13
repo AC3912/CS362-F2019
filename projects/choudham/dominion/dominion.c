@@ -731,7 +731,8 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 
 int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
-	j = 0;		//used to check if player has enough cards to discard
+	int j = 0;		//used to check if player has enough cards to discard
+	int currentPlayer;
 
 	if (choice2 > 2 || choice2 < 0)
 	{
@@ -743,7 +744,7 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 		return -1;
 	}
 
-	for (i = 0; i < state->handCount[currentPlayer]; i++)
+	for (int i = 0; i < state->handCount[currentPlayer]; i++)
 	{
 		if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1)
 		{
