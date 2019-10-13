@@ -620,6 +620,8 @@ int drawCard(int player, struct gameState *state)
 
 int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
+	int currentPlayer;
+
 	state->numBuys++;//Increase buys by 1!
 	if (choice1 > 0) { //Boolean true or going to discard an estate
 		int p = 0;//Iterator for hand!
@@ -1071,6 +1073,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
     case mine:
 		caseMine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+
     case remodel:
         j = state->hand[currentPlayer][choice1];  //store card we will trash
 
