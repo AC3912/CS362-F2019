@@ -1154,7 +1154,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return -1;
 
     case mine:
-		caseMine();
+		caseMine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 
     case remodel:
         j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -1205,7 +1205,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case baron:
-		caseBaron();
+		caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 
     case great_hall:
         //+1 Card
@@ -1219,7 +1219,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case minion:
-		caseMinion();
+		caseMinion(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 
     case steward:
         if (choice1 == 1)
@@ -1245,10 +1245,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case tribute:
-		caseTribute();
+		caseTribute(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 
     case ambassador:
-		caseAmbassador();
+		caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 
     case cutpurse:
 
