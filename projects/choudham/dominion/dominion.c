@@ -676,7 +676,10 @@ int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState 
 }
 
 int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
-{   //+1 action
+{   
+	int currentPlayer;
+
+	//+1 action
 	state->numActions++;
 
 	//discard card from hand
@@ -695,13 +698,13 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 		}
 
 		//draw 4
-		for (i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			drawCard(currentPlayer, state);
 		}
 
 		//other players discard hand and redraw if hand size > 4
-		for (i = 0; i < state->numPlayers; i++)
+		for (int i = 0; i < state->numPlayers; i++)
 		{
 			if (i != currentPlayer)
 			{
@@ -714,7 +717,7 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 					}
 
 					//draw 4
-					for (j = 0; j < 4; j++)
+					for (int j = 0; j < 4; j++)
 					{
 						drawCard(i, state);
 					}
