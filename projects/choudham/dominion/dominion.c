@@ -620,7 +620,22 @@ int drawCard(int player, struct gameState *state)
 
 int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
-	int currentPlayer;
+	int i;
+	int j;
+	int k;
+	int x;
+	int index;
+	int currentPlayer = whoseTurn(state);
+	int nextPlayer = currentPlayer + 1;
+
+	int tributeRevealedCards[2] = { -1, -1 };
+	int temphand[MAX_HAND];// moved above the if statement
+	int drawntreasure = 0;
+	int cardDrawn;
+	int z = 0;// this is the counter for the temp hand
+	if (nextPlayer > (state->numPlayers - 1)) {
+		nextPlayer = 0;
+	}
 
 	state->numBuys++;//Increase buys by 1!
 	if (choice1 > 0) { //Boolean true or going to discard an estate
@@ -677,7 +692,22 @@ int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState 
 
 int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {   
-	int currentPlayer;
+	int i;
+	int j;
+	int k;
+	int x;
+	int index;
+	int currentPlayer = whoseTurn(state);
+	int nextPlayer = currentPlayer + 1;
+
+	int tributeRevealedCards[2] = { -1, -1 };
+	int temphand[MAX_HAND];// moved above the if statement
+	int drawntreasure = 0;
+	int cardDrawn;
+	int z = 0;// this is the counter for the temp hand
+	if (nextPlayer > (state->numPlayers - 1)) {
+		nextPlayer = 0;
+	}
 
 	//+1 action
 	state->numActions++;
@@ -698,13 +728,13 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 		}
 
 		//draw 4
-		for (int i = 0; i < 4; i++)
+		for (i = 0; i < 4; i++)
 		{
 			drawCard(currentPlayer, state);
 		}
 
 		//other players discard hand and redraw if hand size > 4
-		for (int i = 0; i < state->numPlayers; i++)
+		for (i = 0; i < state->numPlayers; i++)
 		{
 			if (i != currentPlayer)
 			{
@@ -717,7 +747,7 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 					}
 
 					//draw 4
-					for (int j = 0; j < 4; j++)
+					for (j = 0; j < 4; j++)
 					{
 						drawCard(i, state);
 					}
@@ -731,8 +761,24 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 
 int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
-	int j = 0;		//used to check if player has enough cards to discard
-	int currentPlayer;
+	int i;
+	int j;
+	int k;
+	int x;
+	int index;
+	int currentPlayer = whoseTurn(state);
+	int nextPlayer = currentPlayer + 1;
+
+	int tributeRevealedCards[2] = { -1, -1 };
+	int temphand[MAX_HAND];// moved above the if statement
+	int drawntreasure = 0;
+	int cardDrawn;
+	int z = 0;// this is the counter for the temp hand
+	if (nextPlayer > (state->numPlayers - 1)) {
+		nextPlayer = 0;
+	}
+	j = 0;		//used to check if player has enough cards to discard
+	
 
 	if (choice2 > 2 || choice2 < 0)
 	{
@@ -744,7 +790,7 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 		return -1;
 	}
 
-	for (int i = 0; i < state->handCount[currentPlayer]; i++)
+	for (i = 0; i < state->handCount[currentPlayer]; i++)
 	{
 		if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1)
 		{
@@ -792,6 +838,22 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 
 int caseTribute(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
+	int i;
+	int j;
+	int k;
+	int x;
+	int index;
+	int currentPlayer = whoseTurn(state);
+	int nextPlayer = currentPlayer + 1;
+
+	int tributeRevealedCards[2] = { -1, -1 };
+	int temphand[MAX_HAND];// moved above the if statement
+	int drawntreasure = 0;
+	int cardDrawn;
+	int z = 0;// this is the counter for the temp hand
+	if (nextPlayer > (state->numPlayers - 1)) {
+		nextPlayer = 0;
+	}
 	if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
 		if (state->deckCount[nextPlayer] > 0) {
 			tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer] - 1];
@@ -853,6 +915,22 @@ int caseTribute(int card, int choice1, int choice2, int choice3, struct gameStat
 
 int caseMine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
+	int i;
+	int j;
+	int k;
+	int x;
+	int index;
+	int currentPlayer = whoseTurn(state);
+	int nextPlayer = currentPlayer + 1;
+
+	int tributeRevealedCards[2] = { -1, -1 };
+	int temphand[MAX_HAND];// moved above the if statement
+	int drawntreasure = 0;
+	int cardDrawn;
+	int z = 0;// this is the counter for the temp hand
+	if (nextPlayer > (state->numPlayers - 1)) {
+		nextPlayer = 0;
+	}
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
 	if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
