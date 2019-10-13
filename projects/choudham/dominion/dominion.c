@@ -643,7 +643,7 @@ int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState 
 		int card_not_discarded = 1;//Flag for discard set!
 		while (card_not_discarded) {
 			if (state->hand[currentPlayer][p] == estate) { //Found an estate card!
-				state->coins += 4;//Add 4 coins to the amount of coins
+				state->coins += 5;//Add 4 coins to the amount of coins
 				state->discard[currentPlayer][state->discardCount[currentPlayer]] = state->hand[currentPlayer][p];
 				state->discardCount[currentPlayer]++;
 				for (; p < state->handCount[currentPlayer]; p++) {
@@ -658,7 +658,7 @@ int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState 
 					printf("No estate cards in your hand, invalid choice\n");
 					printf("Must gain an estate if there are any\n");
 				}
-				if (supplyCount(estate, state) > 0) {
+				if (supplyCount(estate, state) < 0) {
 					gainCard(estate, state, 0, currentPlayer);
 
 					state->supplyCount[estate]--;//Decrement estates
