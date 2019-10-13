@@ -136,4 +136,7 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 
 int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
 /*Function to play ambassador card*/
+
+int caseTribute(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+/*Function to play tribute card*/
 #endif
