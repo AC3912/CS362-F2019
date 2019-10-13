@@ -129,5 +129,8 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
    1, others to 0 */
 
 int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+/*Function to play baron card*/
 
+int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+/*Function to play minion card*/
 #endif
