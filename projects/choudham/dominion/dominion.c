@@ -854,7 +854,7 @@ int caseTribute(int card, int choice1, int choice2, int choice3, struct gameStat
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
 	}
-	if ((state->discardCount[nextPlayer] - state->deckCount[nextPlayer]) <= 1) {
+	if ((state->discardCount[currentPlayer] + state->deckCount[currentPlayer]) <= 1) {
 		if (state->deckCount[nextPlayer] > 0) {
 			tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer] - 1];
 			state->deckCount[nextPlayer]--;
