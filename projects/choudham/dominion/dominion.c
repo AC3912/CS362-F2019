@@ -1205,7 +1205,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case baron:
-		caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		//caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		return caseBaron(card, choice1, state, handPos, currentPlayer);
 
     case great_hall:
         //+1 Card
