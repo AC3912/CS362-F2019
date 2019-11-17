@@ -620,7 +620,7 @@ int drawCard(int player, struct gameState *state)
 
 int caseBaron(struct gameState *state, int choice1, int choice2, int handPos, int currentPlayer)
 {
-	int i;
+	/*int i;
 	int j;
 	int k;
 	int x;
@@ -635,7 +635,7 @@ int caseBaron(struct gameState *state, int choice1, int choice2, int handPos, in
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 
 	state->numBuys++;//Increase buys by 1!
 	if (choice1 > 0) { //Boolean true or going to discard an estate
@@ -694,7 +694,7 @@ int caseMinion(struct gameState *state, int choice1, int choice2, int handPos, i
 {   
 	int i;
 	int j;
-	int k;
+	/*int k;
 	int x;
 	int index;
 	int currentPlayer = whoseTurn(state);
@@ -707,7 +707,7 @@ int caseMinion(struct gameState *state, int choice1, int choice2, int handPos, i
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 
 	//+1 action
 	state->numActions++;
@@ -761,7 +761,7 @@ int caseMinion(struct gameState *state, int choice1, int choice2, int handPos, i
 
 int caseAmbassador(int card, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
-	int i;
+	/*int i;
 	int j;
 	int k;
 	int x;
@@ -776,8 +776,9 @@ int caseAmbassador(int card, int choice1, int choice2, struct gameState *state, 
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
-	j = 0;		//used to check if player has enough cards to discard
+	}*/
+	int i;
+	int j = 0;		//used to check if player has enough cards to discard
 	
 
 	if (choice2 > 2 && choice2 < 0)
@@ -839,7 +840,7 @@ int caseAmbassador(int card, int choice1, int choice2, struct gameState *state, 
 int caseTribute(int card, int *tributeRevealedCards, struct gameState *state, int currentPlayer, int nextPlayer)
 {
 	int i;
-	int j;
+	/*int j;
 	int k;
 	int x;
 	int index;
@@ -853,7 +854,7 @@ int caseTribute(int card, int *tributeRevealedCards, struct gameState *state, in
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 	if ((state->discardCount[currentPlayer] + state->deckCount[currentPlayer]) <= 1) {
 		if (state->deckCount[nextPlayer] > 0) {
 			tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer] - 1];
