@@ -917,7 +917,7 @@ int caseMine(struct gameState *state, int choice1, int choice2, int handPos, int
 {
 	int i;
 	int j;
-	int k;
+	/*int k;
 	int x;
 	int index;
 	int currentPlayer = whoseTurn(state);
@@ -930,7 +930,7 @@ int caseMine(struct gameState *state, int choice1, int choice2, int handPos, int
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
 	if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
