@@ -730,7 +730,7 @@ int caseMinion(struct gameState *state, int choice1, int choice2, int handPos, i
 		//draw 4
 		for (i = 0; i < 4; i++)
 		{
-			drawCard(nextPlayer, state);
+			drawCard(currentPlayer, state);
 		}
 
 		//other players discard hand and redraw if hand size > 4
@@ -810,7 +810,7 @@ int caseAmbassador(int card, int choice1, int choice2, struct gameState *state, 
 	state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
 
 	//each other player gains a copy of revealed card
-	for (i = 0; i < state->nextPlayer; i++)
+	for (i = 0; i < state->numPlayers; i++)
 	{
 		if (i != currentPlayer)
 		{
