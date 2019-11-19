@@ -1155,7 +1155,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return -1;
 
     case mine:
-		return caseMine(state, handPos, choice1, choice2, currentPlayer);
+		return caseMine(choice1, choice2, state, handPos, currentPlayer);
 
     case remodel:
         j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -1221,7 +1221,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case minion:
-		return caseMinion(state, choice1, choice2, handPos, currentPlayer);
+		return caseMinion(card, choice1, choice2, state, handPos, currentPlayer);
 
     case steward:
         if (choice1 == 1)
