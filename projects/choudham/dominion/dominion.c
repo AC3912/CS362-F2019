@@ -618,7 +618,7 @@ int drawCard(int player, struct gameState *state)
     return 0;
 }
 
-int caseBaron(struct gameState *state, int choice1, int choice2, int handPos, int currentPlayer)
+int caseBaron(int card, int choice1, struct gameState *state, int handPos, int currentPlayer)
 {
 	/*int i;
 	int j;
@@ -690,7 +690,7 @@ int caseBaron(struct gameState *state, int choice1, int choice2, int handPos, in
 	return 0;
 }
 
-int caseMinion(struct gameState *state, int choice1, int choice2, int handPos, int currentPlayer)
+int caseMinion(int card, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {   
 	int i;
 	int j;
@@ -914,7 +914,7 @@ int caseTribute(int card, int *tributeRevealedCards, struct gameState *state, in
 	return 0;
 }
 
-int caseMine(struct gameState *state, int choice1, int choice2, int handPos, int currentPlayer)
+int caseMine(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
 	int i;
 	int j;
