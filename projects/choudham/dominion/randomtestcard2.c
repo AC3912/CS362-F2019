@@ -150,8 +150,49 @@ int main()
 		else if (r==17)
 		{
 			G.hand[player][4] = minion;
-			printf("TESTING IF CALLED");
 			
+			int r2 = rand()%2;
+			
+			if(r2 = 0)
+			{
+				printf("Test 1: Check if 2 coins are gained\n");
+				
+				coins = G.coins;
+	
+				//call function to play Minion card
+				caseMinion(0, 1, 0, &G, 4, player);
+				
+				if(G.coins >= coins + 2)
+				{
+					printf("\tTest passed: Player gained 2 coins\n\n");
+				}
+				else
+				{
+					printf("\tTest failed: Player did not gain 2 coins\n\n");
+				}
+			
+				printf("Test 2: Check if actions is incremented\n");
+				
+				//set game state and initialize new game
+				memset(&G, 1, sizeof(struct gameState));
+				initializeGame(2, k, seed, &G);
+				
+				//call function to play Minion card
+				caseMinion(0, 0, 0, &G, 4, player);
+				
+				if(G.numActions > 1)
+				{
+					printf("\tTest passed: numActions incremented successfully\n\n");
+				}
+				else
+				{
+					printf("\tTest failed: numActions did not increment successfully\n\n");
+				}
+			}
+			else
+			{
+				printf("TEST FOR SOMETHING ELSE\n\n")
+			}
 		}
 		else if (r==18)
 		{

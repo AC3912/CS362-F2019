@@ -178,7 +178,7 @@ int main()
 					printf("\tTest failed: Player did not gain 4 coins\n\n");
 				}
 			}
-			else if
+			else
 			{
 				printf("Test 1: Check if numBuys increased by 1\n");
 				
