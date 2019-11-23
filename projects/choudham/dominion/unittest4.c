@@ -127,5 +127,39 @@ int main()
 		printf("\tTest failed: player did not gain 2 cards\n\n");
 	}
 	
+	printf("Test 4: Check nextPlayer's discard pile when deck has fewer than 2 cards\n");
+	
+	//set game state and initialize new game
+    memset(&G, 1, sizeof(struct gameState));
+    initializeGame(2, k, seed, &G);
+	
+	//revealed cards are 2 victory cards
+	tributeRevealed[0] = -1;
+	tributeRevealed[1] = -1;
+	
+	//player1's hand
+	G.hand[player1][0] = copper;
+	G.hand[player1][1] = copper;
+	G.hand[player1][2] = copper;
+	G.hand[player1][3] = copper;
+	G.hand[player1][4] = tribute;
+	
+	//set deck and discard pile of player2
+	G.deckCount[player2] = 0;
+	G.discardCount[player2] = 1;
+	
+	//call function to play Tribute card
+	caseTribute(tribute, tributeRevealed, &G, player1, player2);
+	
+	//assertion - discardCount should decrease for player2
+	if(G.discardCount[player2] == 0)
+	{
+		printf("\tTest passed: player2's deck count decreased\n\n");
+	}
+	else
+	{
+		printf("\tTest failed: player2's deck count did not decrease\n\n");
+	}
+	
 	printf("END FUNCTION TEST FOR TRIBUTE CARD");
 }
