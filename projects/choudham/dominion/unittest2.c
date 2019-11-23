@@ -1,4 +1,4 @@
-//unittest1.c tests Minion card
+//unittest2.c tests Minion card
 
 #include "dominion.h"
 #include "dominion_helpers.h"
@@ -125,5 +125,5 @@ int main()
         printf("\tTest failed: player did not draw 4 cards successfully\n\n");
     }
 	
-	printf("END FUNCTION TEST FOR MINION CARD **");
+	printf("END FUNCTION TEST FOR MINION CARD");
 }

@@ -122,5 +122,5 @@ int main()
         printf("\tTest failed: numBuys did not increment\n\n");
     }
    
-    printf("END FUNCTION TEST FOR BARON CARD **");
+    printf("END FUNCTION TEST FOR BARON CARD");
 }
