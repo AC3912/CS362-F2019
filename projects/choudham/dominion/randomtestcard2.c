@@ -175,7 +175,7 @@ int main()
 				
 				//set game state and initialize new game
 				memset(&G, 1, sizeof(struct gameState));
-				initializeGame(2, k, seed, &G);
+				initializeGame(2, k, rand(), &G);
 				
 				//call function to play Minion card
 				caseMinion(0, 0, 0, &G, 4, player);
