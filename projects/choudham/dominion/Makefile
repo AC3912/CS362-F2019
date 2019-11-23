@@ -31,14 +31,13 @@ clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
 	
 # Assignment 4
-randomtestresults: randomtestcard1.c randomtestcard2.c randomtestcard3.c dominion.o rngs.o
-	gcc -o rtest1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
-	gcc -o rtest2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
-	gcc -o randomtestcard3 -g randomtestcard3.c dominion.o rngs.o $(CFLAGS)
-	./rtest1 >> randomtestresults.out
-	./rtest2 >> randomtestresults.out
-	./rtest3 >> randomtestresults.out
-	gcov dominion.c -b -f >> randomtestresults.out
-	gcov randomtestcard1.c -b -f >> randomtestresults.out
-	gcov randomtestcard2.c -b -f >> randomtestresults.out
-	gcov randomtestcard3.c -b -f >> randomtestresults.out
+randomtestresults.out: randomtestcard1.c randomtestcard2.c randomtestcard3.c dominion.c rngs.c
+	gcc -o randomtestcard1 randomtestcard1.c dominion.c rngs.c $(CFLAGS)
+		randomtestcard1 >> randomtestresults.out
+		gcov -b -f dominion.c >> randomtestresults.out
+	gcc -o randomtestcard2 randomtestcard2.c dominion.c rngs.c $(CFLAGS)
+		randomtestcard2 >> randomtestresults.out
+		gcov -b -f dominion.c >> randomtestresults.out
+	gcc -o randomtestcard3 randomtestcard3.c dominion.c rngs.c $(CFLAGS)
+		randomtestcard3 >> randomtestresults.out
+		gcov -b -f dominion.c >> randomtestresults.out
