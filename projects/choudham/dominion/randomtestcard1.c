@@ -164,7 +164,7 @@ int main()
 				
 				//set game state and initialize new game
 				memset(&G, 2, sizeof(struct gameState));
-				initializeGame(2, k, seed, &G);
+				initializeGame(2, k, rand(), &G);
 				
 				//Call function to play Baron card; set coin count to 0
 				G.coins = 0;
