@@ -12,7 +12,7 @@
 int main()
 {
     int coins;
-	int seed = srand(time(0);
+	int seed = srand(time(0));
     int player = 0;
     struct gameState G;
     int k[10] = {adventurer, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall };
