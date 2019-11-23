@@ -618,9 +618,9 @@ int drawCard(int player, struct gameState *state)
     return 0;
 }
 
-int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+int caseBaron(int card, int choice1, struct gameState *state, int handPos, int currentPlayer)
 {
-	int i;
+	/*int i;
 	int j;
 	int k;
 	int x;
@@ -635,7 +635,7 @@ int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState 
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 
 	state->numBuys++;//Increase buys by 1!
 	if (choice1 > 0) { //Boolean true or going to discard an estate
@@ -690,11 +690,11 @@ int caseBaron(int card, int choice1, int choice2, int choice3, struct gameState 
 	return 0;
 }
 
-int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+int caseMinion(int card, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {   
 	int i;
 	int j;
-	int k;
+	/*int k;
 	int x;
 	int index;
 	int currentPlayer = whoseTurn(state);
@@ -707,7 +707,7 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 
 	//+1 action
 	state->numActions++;
@@ -730,7 +730,7 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 		//draw 4
 		for (i = 0; i < 4; i++)
 		{
-			drawCard(nextPlayer, state);
+			drawCard(currentPlayer, state);
 		}
 
 		//other players discard hand and redraw if hand size > 4
@@ -759,9 +759,9 @@ int caseMinion(int card, int choice1, int choice2, int choice3, struct gameState
 	return 0;
 }
 
-int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+int caseAmbassador(int card, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
-	int i;
+	/*int i;
 	int j;
 	int k;
 	int x;
@@ -776,8 +776,9 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
-	j = 0;		//used to check if player has enough cards to discard
+	}*/
+	int i;
+	int j = 0;		//used to check if player has enough cards to discard
 	
 
 	if (choice2 > 2 && choice2 < 0)
@@ -809,7 +810,7 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 	state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
 
 	//each other player gains a copy of revealed card
-	for (i = 0; i < state->nextPlayer; i++)
+	for (i = 0; i < state->numPlayers; i++)
 	{
 		if (i != currentPlayer)
 		{
@@ -836,10 +837,10 @@ int caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameS
 	return 0;
 }
 
-int caseTribute(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+int caseTribute(int card, int *tributeRevealedCards, struct gameState *state, int currentPlayer, int nextPlayer)
 {
 	int i;
-	int j;
+	/*int j;
 	int k;
 	int x;
 	int index;
@@ -853,7 +854,7 @@ int caseTribute(int card, int choice1, int choice2, int choice3, struct gameStat
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 	if ((state->discardCount[currentPlayer] + state->deckCount[currentPlayer]) <= 1) {
 		if (state->deckCount[nextPlayer] > 0) {
 			tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer] - 1];
@@ -913,11 +914,11 @@ int caseTribute(int card, int choice1, int choice2, int choice3, struct gameStat
 	return 0;
 }
 
-int caseMine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+int caseMine(int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
 	int i;
 	int j;
-	int k;
+	/*int k;
 	int x;
 	int index;
 	int currentPlayer = whoseTurn(state);
@@ -930,7 +931,7 @@ int caseMine(int card, int choice1, int choice2, int choice3, struct gameState *
 	int z = 0;// this is the counter for the temp hand
 	if (nextPlayer > (state->numPlayers - 1)) {
 		nextPlayer = 0;
-	}
+	}*/
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
 	if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
@@ -1154,7 +1155,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return -1;
 
     case mine:
-		caseMine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		return caseMine(choice1, choice2, state, handPos, currentPlayer);
 
     case remodel:
         j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -1205,7 +1206,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case baron:
-		caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		//caseBaron(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		return caseBaron(card, choice1, state, handPos, currentPlayer);
 
     case great_hall:
         //+1 Card
@@ -1219,7 +1221,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case minion:
-		caseMinion(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		return caseMinion(card, choice1, choice2, state, handPos, currentPlayer);
 
     case steward:
         if (choice1 == 1)
@@ -1245,10 +1247,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case tribute:
-		caseTribute(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		return caseTribute(card, tributeRevealedCards, state, currentPlayer, nextPlayer);
 
     case ambassador:
-		caseAmbassador(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus);
+		return caseAmbassador(card, choice1, choice2, state, handPos, currentPlayer);
 
     case cutpurse:
 
