@@ -151,9 +151,11 @@ int main()
 		{
 			G.hand[player][4] = minion;
 			
+			printf("Card randomly selected: minion\n");
+			
 			int r2 = rand()%2;
 			
-			if(r2 = 0)
+			if(r2 = 1)
 			{
 				printf("Test 1: Check if 2 coins are gained\n");
 				
@@ -191,7 +193,54 @@ int main()
 			}
 			else
 			{
-				printf("TEST FOR SOMETHING ELSE\n\n");
+				printf("Test 1: Check if actions is incremented\n");
+				
+				//call function to play Minion card
+				caseMinion(0, 0, 0, &G, 4, player);
+				
+				if(G.numActions > 1)
+				{
+					printf("\tTest passed: numActions incremented successfully\n\n");
+				}
+				else
+				{
+					printf("\tTest failed: numActions did not increment successfully\n\n");
+				}
+				
+				printf("Check if player draws 4 card\n");
+				
+				//set game state and initialize new game
+				memset(&G, 1, sizeof(struct gameState));
+				initializeGame(2, k, rand(), &G);
+				
+				//Checks if player draws 4 cards
+				G.hand[player][0] = copper;
+				G.hand[player][1] = copper;
+				G.hand[player][2] = copper;
+				G.hand[player][3] = copper;
+				G.hand[player][4] = minion;
+				int handCount = G.handCount[player];
+				
+				//hand of player 2
+				G.hand[1][0] = silver;
+				G.hand[1][1] = silver;
+				G.hand[1][2] = silver;
+				G.hand[1][3] = silver;
+				G.hand[1][4] = silver;
+				G.handCount[1] = 5;
+				
+				//call function to play Minion card
+				caseMinion(0, 0, 0, &G, 4, player);
+				
+				if(G.handCount[player] < handCount)
+				{
+					printf("\tTest passed: player drew 4 cards successfully\n\n");
+				}
+				else
+				{
+					printf("\tTest failed: player did not draw 4 cards successfully\n\n");
+				}
+				
 			}
 		}
 		else if (r==18)

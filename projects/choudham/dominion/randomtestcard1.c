@@ -137,9 +137,11 @@ int main()
 		{
 			G.hand[player][4] = baron;
 			
+			printf("Card randomly selected: baron\n");
+			
 			int r2 = rand()%2;
 			
-			if(r2 = 0)
+			if(r2 = 1)
 			{
 				G.hand[player][0] = estate;
 				
