@@ -13,7 +13,7 @@ int main()
 	int seed = 500;
     int player1 = 0;
 	int player2 = 1;
-	int tributeRevealed[2] = {-1,-1}
+	int tributeRevealed[2] = {-1,-1};
     struct gameState G;
     int k[10] = {adventurer, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall };
 
