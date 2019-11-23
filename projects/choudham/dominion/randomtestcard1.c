@@ -11,7 +11,7 @@
 
 int main()
 {
-    int seed = 500;
+    srand(time(0));
     int player = 0;
 	int estateSupply;
     struct gameState G;
@@ -23,7 +23,7 @@ int main()
 	{
 		//set game state and initialize new game
 		memset(&G, 1, sizeof(struct gameState));
-		initializeGame(2, k, seed, &G);
+		initializeGame(2, k, rand(), &G);
 		
 		//randomly select card for hand
 		srand(time(0));
@@ -137,13 +137,11 @@ int main()
 		{
 			G.hand[player][4] = baron;
 			
-			srand(time(0));
-			
 			int r2 = rand()%2;
 			
 			if(r2 = 0)
 			{
-				//G.hand[player][0] = estate;
+				G.hand[player][0] = estate;
 				
 				printf("Test 1: Check if numBuys increased by 1\n");
 				
