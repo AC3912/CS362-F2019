@@ -18,7 +18,7 @@ int main()
 
     printf("FUNCTION TEST FOR MINION CARD\n\n");
 	
-	printf("Test 1: Check if 2 coins are gained\n")
+	printf("Test 1: Check if 2 coins are gained\n");
     //set game state and initialize new game
     memset(&G, 1, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
@@ -44,7 +44,7 @@ int main()
         printf("\tTest failed: Player did not gain 2 coins\n\n");
     }
 
-	printf("Test 2: Check if Minion card is discarded\n")
+	printf("Test 2: Check if Minion card is discarded\n");
     //set game state and initialize new game
     memset(&G, 1, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
@@ -68,7 +68,7 @@ int main()
         printf("\tTest failed: Minion card not dicarded successfully\n\n");
     }	
 
-	printf("Test 3: Check if actions is incremented\n")
+	printf("Test 3: Check if actions is incremented\n");
     //set game state and initialize new game
     memset(&G, 1, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
@@ -92,7 +92,7 @@ int main()
         printf("\tTest failed: numActions did not increment successfully\n\n");
     }	
 	
-	printf("Check if player draws 4 card\n")
+	printf("Check if player draws 4 card\n");
     //set game state and initialize new game
     memset(&G, 1, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
@@ -103,7 +103,7 @@ int main()
     G.hand[player][2] = copper;
     G.hand[player][3] = copper;
     G.hand[player][4] = minion;
-	int handCount = G.handcount[player];
+	int handCount = G.handCount[player];
 	
 	//hand of player 2
 	G.hand[1][0] = silver;
