@@ -26,7 +26,7 @@ int main()
 		initializeGame(2, k, rand(), &G);
 		
 		//randomly select card for hand
-		srand(time(0));
+		//srand(time(0));
 		int r = rand()%27;
 		if(r==0)
 		{
