@@ -201,7 +201,7 @@ int main()
 				
 				//set game state and initialize new game
 				memset(&G, 3, sizeof(struct gameState));
-				initializeGame(2, k, seed, &G);
+				initializeGame(2, k, rand(), &G);
 				
 				//estate supply count
 				estateSupply = G.supplyCount[estate];
