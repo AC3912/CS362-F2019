@@ -181,7 +181,7 @@ int main()
 				}
 			}
 			else if
-			{
+			({
 				printf("Test 1: Check if numBuys increased by 1\n");
 				
 				//call function to play Baron card
