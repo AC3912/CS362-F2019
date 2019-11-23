@@ -118,7 +118,7 @@ int main()
 	caseTribute(tribute, tributeRevealed, &G, player1, player2);
 	
 	//assertion - player should only gain 2 cards since duplicate victory cards
-	if(G.handcount[player1] == handCount + 2)
+	if(G.handCount[player1] == handCount + 2)
 	{
 		printf("\tTest passed: player gains 2 cards\n\n");
 	}
