@@ -12,7 +12,7 @@
 int main()
 {
     int coins;
-	int seed = srand(time(0));
+	srand(time(0));
     int player = 0;
     struct gameState G;
     int k[10] = {adventurer, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall };
@@ -23,7 +23,7 @@ int main()
 	{
 		//set game state and initialize new game
 		memset(&G, 1, sizeof(struct gameState));
-		initializeGame(2, k, seed, &G);
+		initializeGame(2, k, rand(), &G);
 		
 		//randomly select card for hand
 		srand(time(0));
