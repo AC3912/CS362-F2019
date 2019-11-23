@@ -143,7 +143,7 @@ int main()
 			
 			if(r2 = 0)
 			{
-				/*G.hand[player][0] = estate;
+				//G.hand[player][0] = estate;
 				
 				printf("Test 1: Check if numBuys increased by 1\n");
 				
@@ -178,8 +178,7 @@ int main()
 				else
 				{
 					printf("\tTest failed: Player did not gain 4 coins\n\n");
-				}*/
-				printf("Testing where error is\n\n")
+				}
 			}
 			else if
 			{

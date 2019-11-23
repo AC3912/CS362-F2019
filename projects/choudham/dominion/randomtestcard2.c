@@ -151,8 +151,7 @@ int main()
 		{
 			G.hand[player][4] = minion;
 			
-			printf("Card randomly selected: minion\n");
-			printf("No testing. Check next random selection.\n\n");
+			
 		}
 		else if (r==18)
 		{
