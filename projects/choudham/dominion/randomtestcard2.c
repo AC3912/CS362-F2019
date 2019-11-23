@@ -191,7 +191,7 @@ int main()
 			}
 			else
 			{
-				printf("TEST FOR SOMETHING ELSE\n\n")
+				printf("TEST FOR SOMETHING ELSE\n\n");
 			}
 		}
 		else if (r==18)
