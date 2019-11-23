@@ -139,7 +139,7 @@ int main()
 			
 			srand(time(0));
 			
-			r2 = rand()%2;
+			int r2 = rand()%2;
 			
 			if(r2 = 0)
 			{
