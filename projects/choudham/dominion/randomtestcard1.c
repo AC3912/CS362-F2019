@@ -218,8 +218,8 @@ int main()
 				{
 					printf("\tTest failed: Player did not gain Estate card\n\n");
 				}
-						
-		}
+			}
+		}				
 		else if (r==16)
 		{
 			G.hand[player][4] = great_hall;
@@ -297,3 +297,5 @@ int main()
 			printf("Card randomly selected: treasure_map\n");
 			printf("No testing. Check next random selection.\n\n");
 		}
+	}
+}
