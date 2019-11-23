@@ -91,5 +91,41 @@ int main()
 		printf("\tTest failed: player did not gain 2 actions\n\n");
 	}
 	
+	printf("Test 3: Check if 2 cards are gained when 2 victory cards revealed\n");
+	
+	//set game state and initialize new game
+    memset(&G, 1, sizeof(struct gameState));
+    initializeGame(2, k, seed, &G);
+	
+	//revealed cards are 2 victory cards
+	tributeRevealed[0] = estate;
+	tributeRevealed[1] = estate;
+	
+	//player1's hand
+	G.hand[player1][0] = copper;
+	G.hand[player1][1] = copper;
+	G.hand[player1][2] = copper;
+	G.hand[player1][3] = copper;
+	G.hand[player1][4] = tribute;
+	
+	int handCount = G.handCount[player1];
+	
+	//set deck and discard pile of player2
+	G.deckCount[player2] = 2;
+	G.discardCount[player2] = 2;
+	
+	//call function to play Tribute card
+	caseTribute(tribute, tributeRevealed, &G, player1, player2);
+	
+	//assertion - player should only gain 2 cards since duplicate victory cards
+	if(G.handcount[player1] == handCount + 2)
+	{
+		printf("\tTest passed: player gains 2 cards\n\n");
+	}
+	else
+	{
+		printf("\tTest failed: player did not gain 2 cards\n\n");
+	}
+	
 	printf("END FUNCTION TEST FOR TRIBUTE CARD");
 }
