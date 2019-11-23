@@ -17,7 +17,7 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall };
 
     printf("FUNCTION TEST FOR BARON CARD\n\n");
-	printf("Test 1: Check if Estate card is discarded\n")
+	printf("Test 1: Check if Estate card is discarded\n");
 	
     //set game state and initialize new game
     memset(&G, 1, sizeof(struct gameState));
@@ -43,7 +43,7 @@ int main()
         printf("\tTest failed: Estate card not discarded from hand\n\n");
     }
 
-	printf("Test 2: Check if player gains 4 coins\n")
+	printf("Test 2: Check if player gains 4 coins\n");
 	//set game state and initialize new game
     memset(&G, 2, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
@@ -69,7 +69,7 @@ int main()
         printf("\tTest failed: Player did not gain 4 coins\n\n");
     }
 	
-	printf("Test 3: Check if player gains an Estate card\n")
+	printf("Test 3: Check if player gains an Estate card\n");
 	//set game state and initialize new game
     memset(&G, 3, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
@@ -97,7 +97,7 @@ int main()
         printf("\tTest failed: Player did not gain Estate card\n\n");
     }
 	
-	printf("Test 4: Check if numBuys increased by 1\n")
+	printf("Test 4: Check if numBuys increased by 1\n");
 	//set game state and initialize new game
     memset(&G, 1, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
