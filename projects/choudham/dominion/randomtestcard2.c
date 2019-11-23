@@ -150,7 +150,7 @@ int main()
 		else if (r==17)
 		{
 			G.hand[player][4] = minion;
-			
+			printf("TESTING IF CALLED");
 			
 		}
 		else if (r==18)
