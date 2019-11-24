@@ -51,10 +51,10 @@ int main()
 	
 	if(choiceCorrect == -2)
 	{
-		printf("\tTest passed: choice1 is correct\n\n")
+		printf("\tTest passed: choice1 is correct\n\n");
 	}
 	else
 	{
-		printf("\tTest failed: choice1 is not correct\n\n")
+		printf("\tTest failed: choice1 is not correct\n\n");
 	}
 }
