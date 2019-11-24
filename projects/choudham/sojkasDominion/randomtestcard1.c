@@ -147,7 +147,7 @@ int main()
 				printf("Test 1: Check if numBuys increased by 1\n");
 				
 				//call function to play Baron card
-				caseBaron(1, 0, &G, 4, player);
+				baronEffect(0, &G, player);
 				
 				//assertion - numBuys increased by 1 = pass, otherwise fail
 				if (G.numBuys == 2)
@@ -167,7 +167,7 @@ int main()
 				
 				//Call function to play Baron card; set coin count to 0
 				G.coins = 0;
-				caseBaron(1, 1, &G, 4, player);
+				baronEffect(1, &G, player);
 
 				//assertion - if player gains 4 coins = pass, otherwise fail
 				if (G.coins == 4)
@@ -184,7 +184,7 @@ int main()
 				printf("Test 1: Check if numBuys increased by 1\n");
 				
 				//call function to play Baron card
-				caseBaron(1, 0, &G, 4, player);
+				baronEffect(0, &G, player);
 				
 				//assertion - numBuys increased by 1 = pass, otherwise fail
 				if (G.numBuys == 2)
@@ -206,7 +206,7 @@ int main()
 				estateSupply = G.supplyCount[estate];
 				
 				//call function to play Baron card
-				caseBaron(1, 0, &G, 4, player);
+				baronEffect(0, &G, player);
 
 				//assertion - if player gains Estate card = pass, otherwise fail
 				if (G.supplyCount[estate] + 1 == estateSupply)
