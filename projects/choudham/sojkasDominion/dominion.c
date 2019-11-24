@@ -707,7 +707,7 @@ static void drawNumberCards(int player, struct gameState *state, int numberCards
 //Inputs: pointer to game state, hand postion of card, trashPos is the postion in hand of card to trash
 //cardToGain realtes to card to gain
 //Output: -1 if error, 0 if no error
-static int mineEffect(struct gameState *state, int handPos, int trashPos, int cardToGain)
+int mineEffect(struct gameState *state, int handPos, int trashPos, int cardToGain)
 {
 	int currentPlayer = whoseTurn(state);
 	int cardTrash = state->hand[currentPlayer][trashPos];  //store card we will trash
@@ -748,7 +748,7 @@ static int mineEffect(struct gameState *state, int handPos, int trashPos, int ca
 //2 coins for a treasure card, or draw 2 cards for a victory card.
 //Inputs: pointer to game state, hand postion of card to be played
 //Output: -1 if error, 0 if no error
-static int tributeEffect(struct gameState *state, int handPos)
+int tributeEffect(struct gameState *state, int handPos)
 {
 	int currentPlayer = whoseTurn(state);
 	int nextPlayer = currentPlayer;
@@ -833,7 +833,7 @@ static int tributeEffect(struct gameState *state, int handPos)
 //Inputs: pointer to game state, hand postion of card to be played, the index of the current player, revealPos is the hand postion
 //of card to be reaveled, choice2 is the number of cards to return to supply 
 //Output: -1 if error, 0 if no error
-static int ambassadorEffect(int revealPos, int numberCards, struct gameState *state, int handPos, int currentPlayer)
+int ambassadorEffect(int revealPos, int numberCards, struct gameState *state, int handPos, int currentPlayer)
 {
 	int numberCardsHand = 0;		//used to check if player has enough cards to discard
 
@@ -899,7 +899,7 @@ static int ambassadorEffect(int revealPos, int numberCards, struct gameState *st
 //either gain 2 gold for the turn or discard their hand drawing 4 more cards. If the latter is chosen, 
 //then the other players with at 5 cards in hand are forced to discard their hand and draw 4 cards.
 //Output: -1 if error, 0 if no error
-static int minionEffect(int gainCoins, struct gameState *state, int currentPlayer, int handPos)
+int minionEffect(int gainCoins, struct gameState *state, int currentPlayer, int handPos)
 {
 
 	//+1 action
@@ -927,7 +927,7 @@ static int minionEffect(int gainCoins, struct gameState *state, int currentPlaye
 //either gain 2 gold for the turn or discard their hand drawing 4 more cards. If the latter is chosen, 
 //then the other players with at 5 cards in hand are forced to discard their hand and draw 4 cards.
 //Output: -1 if error, 0 if no error
-static int baronEffect(int choiceDiscard, struct gameState *state, int currentPlayer)
+int baronEffect(int choiceDiscard, struct gameState *state, int currentPlayer)
 {
 	state->numBuys++;//Increase buys by 1!
 	int cardDiscarded = 0;//Flag for discard set!
