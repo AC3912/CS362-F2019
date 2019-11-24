@@ -12,7 +12,7 @@ int main()
 {
     int seed = 500;
     int player = 0;
-	int estateSupply;
+    int estateSupply;
     struct gameState G;
     int k[10] = {adventurer, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall };
 
@@ -31,7 +31,7 @@ int main()
     G.hand[player][4] = baron;
 
     //call function to play Baron card
-    caseBaron(1, 1, &G, 4, player);
+    baronEffect(1, &G, player);
 	
     //assertion - if player has 4 cards = pass, otherwise fail
     if (G.handCount[player] == 4) 
@@ -43,8 +43,8 @@ int main()
         printf("\tTest failed: Estate card not discarded from hand\n\n");
     }
 
-	printf("Test 2: Check if player gains 4 coins\n");
-	//set game state and initialize new game
+    printf("Test 2: Check if player gains 4 coins\n");
+    //set game state and initialize new game
     memset(&G, 2, sizeof(struct gameState));
     initializeGame(2, k, seed, &G);
 	
@@ -57,7 +57,7 @@ int main()
 
     //Call function to play Baron card; set coin count to 0
     G.coins = 0;
-    caseBaron(1, 1, &G, 4, player);
+    baronEffect(1, &G, player);
 
 	//assertion - if player gains 4 coins = pass, otherwise fail
     if (G.coins == 4)
@@ -85,7 +85,7 @@ int main()
     estateSupply = G.supplyCount[estate];
 	
     //call function to play Baron card
-    caseBaron(1, 0, &G, 4, player);
+    baronEffect(0, &G, player);
 
     //assertion - if player gains Estate card = pass, otherwise fail
     if (G.supplyCount[estate] + 1 == estateSupply)
@@ -110,7 +110,7 @@ int main()
     G.hand[player][4] = baron;
 
     //call function to play Baron card
-    caseBaron(1, 0, &G, 4, player);
+    baronEffect(0, &G, player);
 	
 	//assertion - numBuys increased by 1 = pass, otherwise fail
 	if (G.numBuys == 2)
