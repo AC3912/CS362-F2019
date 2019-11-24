@@ -162,7 +162,7 @@ int main()
 				coins = G.coins;
 	
 				//call function to play Minion card
-				caseMinion(0, 1, 0, &G, 4, player);
+				minionEffect(1, &G, player, 4);
 				
 				if(G.coins >= coins + 2)
 				{
@@ -180,7 +180,7 @@ int main()
 				initializeGame(2, k, rand(), &G);
 				
 				//call function to play Minion card
-				caseMinion(0, 0, 0, &G, 4, player);
+				minionEffect(0, &G, player, 4);
 				
 				if(G.numActions > 1)
 				{
@@ -196,7 +196,7 @@ int main()
 				printf("Test 1: Check if actions is incremented\n");
 				
 				//call function to play Minion card
-				caseMinion(0, 0, 0, &G, 4, player);
+				minionEffect(0, &G, player, 4);
 				
 				if(G.numActions > 1)
 				{
@@ -230,7 +230,7 @@ int main()
 				G.handCount[1] = 5;
 				
 				//call function to play Minion card
-				caseMinion(0, 0, 0, &G, 4, player);
+				caseMinion(0, &G, player, 4);
 				
 				if(G.handCount[player] < handCount)
 				{
