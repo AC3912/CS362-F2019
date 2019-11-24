@@ -32,11 +32,11 @@ int main()
 	
 	if(choice == 0)
 	{
-		printf(\t"Test passed: Silver trashed and silver gained"\n\n);
+		printf("\tTest passed: Silver trashed and silver gained\n\n");
 	}
 	else
 	{
-		printf(\t"Test failed: Either silver not trashed nor gained"\n\n);
+		printf("\tTest failed: Either silver not trashed nor gained\n\n");
 	}
 	
 	printf("Test 2: Trash and gain different treasure card\n");
@@ -64,11 +64,11 @@ int main()
 	
 	if(silverCardCount == 1)
 	{
-		printf(\t"Test passed: Copper trashed and silver gained"\n\n);
+		printf("\tTest passed: Copper trashed and silver gained\n\n");
 	}
 	else
 	{
-		printf(\t"Test failed: Either copper not trashed or silver not gained"\n\n);
+		printf("\tTest failed: Either copper not trashed or silver not gained\n\n");
 	}
 }
 	
