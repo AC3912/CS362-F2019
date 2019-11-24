@@ -33,7 +33,7 @@ int main()
 	coins = G.coins;
 	
 	//call function to play Minion card
-	caseMinion(0, 1, 0, &G, 4, player);
+	minionEffect(1, &G, player, 4);
 	
 	if(G.coins >= coins + 2)
 	{
@@ -57,7 +57,7 @@ int main()
     G.hand[player][4] = minion;
 	
 	//call function to play Minion card
-	caseMinion(0, 1, 0, &G, 4, player);
+	minionEffect(1, &G, player, 4);
 	
 	if(G.hand[player][4] == -1)
 	{
@@ -81,7 +81,7 @@ int main()
     G.hand[player][4] = minion;
 	
 	//call function to play Minion card
-	caseMinion(0, 0, 0, &G, 4, player);
+	minionEffect(0, &G, player, 4);
 	
 	if(G.numActions > 1)
 	{
@@ -114,7 +114,7 @@ int main()
 	G.handCount[1] = 5;
 	
 	//call function to play Minion card
-	caseMinion(0, 0, 0, &G, 4, player);
+	minionEffect(0, &G, player, 4);
 	
 	if(G.handCount[player] < handCount)
 	{
