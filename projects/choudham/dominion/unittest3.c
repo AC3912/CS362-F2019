@@ -68,9 +68,9 @@ int main()
 	G.hand[player][3] = silver;
 	G.hand[player][4] = ambassador;
 	
-	int choiceCorrect = caseAmbassador(0,0,3,&G,4,0);
+	int choice = caseAmbassador(0,0,3,&G,4,0);
 	
-	if(choiceCorrect == -1)
+	if(choice == -1)
 	{
 		printf("\tTest passed: choice2 is correct\n\n");
 	}
@@ -93,7 +93,7 @@ int main()
 	
 	caseAmbassador(0,0,3,&G,4,0);
 	
-	if(G.handCount == 3)
+	if(G.handCount[player] == 3)
 	{
 		printf("\tTest passed: correct amount of cards discarded from player's hand\n\n");
 	}
