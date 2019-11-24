@@ -54,7 +54,7 @@ int main()
 	caseMine(1, silver, &G, 4, player);
 	
 	int silverCardCount = 0;
-	for(int i = 0; i < G.handCount[player; i++])
+	for(int i = 0; i < G.handCount[player]; i++)
 	{
 		if(G.hand[player][i] == silver)
 		{
