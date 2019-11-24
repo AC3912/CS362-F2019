@@ -37,4 +37,24 @@ int main()
     {
         printf("\tTest failed: Other player did not gain revealed Estate card\n\n");
     }
+	
+	printf("Test 2: Check if choice1 is correct\n");
+	
+    //set game state and initialize new game
+    memset(&G, 1, sizeof(struct gameState));
+    initializeGame(2, k, seed, &G);
+	
+	G.hand[player][3] = silver;
+	G.hand[player][4] = ambassador;
+	
+	int choiceCorrect = caseAmbassador(0,4,2,&G,4,0);
+	
+	if(choiceCorrect == -2)
+	{
+		printf("\tTest passed: choice1 is correct\n\n")
+	}
+	else
+	{
+		printf("\tTest failed: choice1 is not correct\n\n")
+	}
 }
