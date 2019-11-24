@@ -25,7 +25,7 @@ int main()
 	G.hand[player][3] = estate;
 	G.hand[player][4] = ambassador;
 	
-	caseAmbassador(0,3,2,&G,4,0);
+	ambassadorEffect(3,2,&G,4,0);
 	
 	int estateSupply = G.supplyCount[estate];
 	
@@ -47,7 +47,7 @@ int main()
 	G.hand[player][3] = silver;
 	G.hand[player][4] = ambassador;
 	
-	int choiceCorrect = caseAmbassador(0,4,2,&G,4,0);
+	int choiceCorrect = ambassadorEffect(4,2,&G,4,0);
 	
 	if(choiceCorrect == -2)
 	{
@@ -68,7 +68,7 @@ int main()
 	G.hand[player][3] = silver;
 	G.hand[player][4] = ambassador;
 	
-	int choice = caseAmbassador(0,0,3,&G,4,0);
+	int choice = ambassadorEffect(0,3,&G,4,0);
 	
 	if(choice == -1)
 	{
@@ -91,7 +91,7 @@ int main()
 	G.hand[player][3] = silver;
 	G.hand[player][4] = ambassador;
 	
-	caseAmbassador(0,0,3,&G,4,0);
+	ambassadorEffect(0,3,&G,4,0);
 	
 	if(G.handCount[player] == 3)
 	{
