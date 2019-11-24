@@ -28,7 +28,7 @@ int main()
 	G.hand[player][3] = silver;
 	G.hand[player][4] = mine;
 	
-	int choice = caseMine(1, silver, &G, 4, player);
+	int choice = mineEffect(&G, 4, 1, silver);
 	
 	if(choice == 0)
 	{
@@ -51,7 +51,7 @@ int main()
 	G.hand[player][3] = copper;
 	G.hand[player][4] = mine;
 	
-	caseMine(1, silver, &G, 4, player);
+	mineEffect(&G, 4, 1, silver);
 	
 	int silverCardCount = 0;
 	for(int i = 0; i < G.handCount[player]; i++)
