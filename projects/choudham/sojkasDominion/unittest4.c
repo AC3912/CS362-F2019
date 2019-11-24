@@ -43,7 +43,7 @@ int main()
 	G.discardCount[player2] = 2;
 	
 	//call function to play Tribute card
-	caseTribute(tribute, tributeRevealed, &G, player1, player2);
+	tributeEffect( &G, 4);
 	
 	//assertion - player should only gain 2 coins since duplicate treasure cards
 	if(G.coins == coinsCount + 2)
@@ -79,7 +79,7 @@ int main()
 	G.discardCount[player2] = 2;
 	
 	//call function to play Tribute card
-	caseTribute(tribute, tributeRevealed, &G, player1, player2);
+	tributeEffect(&G, 4);
 	
 	//assertion - player should only gain 2 actions since duplicate action cards
 	if(G.numActions == numActions + 2)
@@ -115,7 +115,7 @@ int main()
 	G.discardCount[player2] = 2;
 	
 	//call function to play Tribute card
-	caseTribute(tribute, tributeRevealed, &G, player1, player2);
+	tributeEffect(&G, 4);
 	
 	//assertion - player should only gain 2 cards since duplicate victory cards
 	if(G.handCount[player1] == handCount + 2)
@@ -149,7 +149,7 @@ int main()
 	G.discardCount[player2] = 1;
 	
 	//call function to play Tribute card
-	caseTribute(tribute, tributeRevealed, &G, player1, player2);
+	tributeEffect(&G, 4);
 	
 	//assertion - discardCount should decrease for player2
 	if(G.discardCount[player2] == 0)
