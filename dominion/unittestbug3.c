@@ -169,10 +169,10 @@ int main()
 	printf("\n");
 
 	//Assertions and results
-	printf("\nTEST 1 RESULTS for Bug 3\n\n");
+	printf("\nTEST 2 RESULTS for Bug 3\n\n");
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
-	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
+	assert(1, G.discardCount[player], "Player's discard pile should be zero.");
 	assert(4, getCost(embargo)+2, "Cost of embargo card to trash + 2 should be four.");
 	assert(8, getCost(province), "Cost of province card to gain is eight");
 	
