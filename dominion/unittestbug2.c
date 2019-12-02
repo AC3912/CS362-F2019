@@ -172,7 +172,7 @@ int main()
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
-	assert(3, getCost(copper)+3, "Cost of copperto trash + 3 should be three.");
+	assert(3, getCost(copper)+3, "Cost of copper ./to trash + 3 should be three.");
 	assert(3, getCost(silver), "Cost of silver card to gain is three");
 	
 	/*//set game state and initialize new game

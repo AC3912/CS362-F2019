@@ -43,7 +43,7 @@ int main()
 	
 	//Test 1 is to trash a silver treasure card and gain a baron card
 	//Will fail since the getCost if statement is not corret
-	printf("\nTEST 1: Trash silver, gain silver\n");
+	printf("\nTEST 1: Trash silver, gain baron\n");
 	//pre game state
 	printf("\nBEFORE CARDEFFECT CALL\n");
 	printf("Player's handCount: %d\n", G.handCount[player]);
@@ -100,7 +100,7 @@ int main()
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
-	assert(5, getCost(silver)+3, "Cost of silver card to trash + 2 should be six.");
+	assert(5, getCost(silver)+2, "Cost of silver card to trash + 2 should be six.");
 	assert(4, getCost(baron), "Cost of baron card to gain is four");
 	
 	return 0;
