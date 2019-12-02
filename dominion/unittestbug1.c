@@ -101,7 +101,7 @@ int main()
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
 	assert(6, getCost(G.hand[player][1])+3, "Cost of silver card to trash should be six.");
-	assert(6, getCost(choice2), "Cost of silver card to gain is three");
+	assert(6, getCost(silver), "Cost of silver card to gain is three");
 	
 	//set game state and initialize new game
 	memset(&G, 1, sizeof(struct gameState)); 
