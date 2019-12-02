@@ -95,8 +95,9 @@ int main()
 
 	//Assertions and results
 	printf("\nTEST RESULTS for Bug 1\n\n");
-	assert(4, G.handCount[player], "\tPlayer's handCount should be four.");
-	assert(0, G.discardCount[player], "\t Player's discard pile should be zero.");
+	assert(0, returnValue, "Return value should be zero");
+	assert(4, G.handCount[player], "Player's handCount should be four.");
+	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
 
 	return 0;
 }
