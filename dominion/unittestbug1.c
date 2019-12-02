@@ -176,7 +176,7 @@ int main()
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
 	assert(3, getCost(G.hand[player][1])+3, "Cost of copper card to trash should be three.");
-	assert(6, getCost(choice2), "Cost of gold card to gain should be six");
+	assert(6, getCost(gold), "Cost of gold card to gain should be six");
 
 	return 0;
 }
