@@ -96,12 +96,85 @@ int main()
 	printf("\n");
 
 	//Assertions and results
-	printf("\nTEST RESULTS for Bug 1\n\n");
+	printf("\nTEST 1 RESULTS for Bug 1\n\n");
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
 	assert(5, getCost(silver)+2, "Cost of silver card to trash + 2 should be six.");
 	assert(4, getCost(baron), "Cost of baron card to gain is four");
+	
+	//set game state and initialize new game
+	memset(&G, 1, sizeof(struct gameState)); 
+	initializeGame(2, k, rand(), &G);
+
+	//set player's hand
+	G.hand[player][0] = remodel; 
+	G.hand[player][1] = embargo; 
+	G.hand[player][2] = estate; 
+	G.hand[player][3] = estate;
+	G.hand[player][4] = estate;
+	
+	//Test 2 is to trash a embargo card and gain a province card
+	//Should fail but with bug it will pass
+	printf("\nTEST 2: Trash embargo, gain province\n");
+	//pre game state
+	printf("\nBEFORE CARDEFFECT CALL\n");
+	printf("Player's handCount: %d\n", G.handCount[player]);
+	printf("Player's discardCount: %d\n\n", G.discardCount[player]);
+	
+	printf("Cards in player's hand: ");
+	for(int i = 0; i < G.handCount[player]; i++)
+	{
+		printf("%d ", G.hand[player][i]);
+	}
+	printf("\n");
+	printf("Cards in player's discard pile: ");
+	for(int i = 0; i < G.discardCount[player]; i++)
+	{
+		printf("%d ", G.discard[player][i]);
+	}
+	printf("\n");
+	printf("Cards in player's played pile: ");
+	for(int i = 0; i < G.playedCards[i]; i++)
+	{
+		printf("%d ", G.playedCards[i]);
+	}
+	printf("\n");
+	
+	//int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+	int returnValue = cardEffect(remodel, 1, province, -1, &G, 0, 0); 
+	
+	//after game state
+	printf("\nAFTER CARDEFFECT CALL\n");
+	printf("Player's handCount: %d\n", G.handCount[player]);
+	printf("Player's discardCount: %d\n\n", G.discardCount[player]);
+	
+	printf("Cards in player's hand: ");
+	for(int i = 0; i < G.handCount[player]; i++)
+	{
+		printf("%d ", G.hand[player][i]);
+	}
+	printf("\n");
+	printf("Cards in player's discard pile: ");
+	for(int i = 0; i < G.discardCount[player]; i++)
+	{
+		printf("%d ", G.discard[player][i]);
+	}
+	printf("\n");
+	printf("Cards in player's played pile: ");
+	for(int i = 0; i < G.playedCards[i]; i++)
+	{
+		printf("%d ", G.playedCards[i]);
+	}
+	printf("\n");
+
+	//Assertions and results
+	printf("\nTEST 1 RESULTS for Bug 1\n\n");
+	assert(0, returnValue, "Return value should be zero");
+	assert(4, G.handCount[player], "Player's handCount should be four.");
+	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
+	assert(4, getCost(embargo)+2, "Cost of embargo card to trash + 2 should be four.");
+	assert(8, getCost(province), "Cost of province card to gain is eight");
 	
 	return 0;
 }
