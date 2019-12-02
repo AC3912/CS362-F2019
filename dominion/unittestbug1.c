@@ -43,7 +43,7 @@ int main()
 	
 	//Test 1 is to trash a silver treasure card and gain a silver treasure card
 	//Expected to fail since the getCost if statement is not corret
-	printf("\nTEST 1: Trash silver, gain silver\n")
+	printf("\nTEST 1: Trash silver, gain silver\n");
 	//pre game state
 	printf("\nBEFORE CARDEFFECT CALL\n");
 	printf("Player's handCount: %d\n", G.handCount[player]);
@@ -100,8 +100,8 @@ int main()
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
-	assert(6, getCost(G.hand[player][1])+3, "Cost of silver card to trash should be six.")
-	assert(6, getCost(choice2), "Cost of silver card to gain is three")
+	assert(6, getCost(G.hand[player][1])+3, "Cost of silver card to trash should be six.");
+	assert(6, getCost(choice2), "Cost of silver card to gain is three");
 	
 	//set game state and initialize new game
 	memset(&G, 1, sizeof(struct gameState)); 
@@ -118,7 +118,7 @@ int main()
 	//Expected to pass since the getCost if statement is not correct.
 	//In reality, this should fail. However, in order to test if treasure card
 	//is being trashed we need to make all the if statements pass.
-	printf("TEST 2: Trash copper, gain gold")
+	printf("TEST 2: Trash copper, gain gold");
 	//pre game state
 	printf("\nBEFORE CARDEFFECT CALL\n");
 	printf("Player's handCount: %d\n", G.handCount[player]);
@@ -144,7 +144,7 @@ int main()
 	printf("\n");
 	
 	//int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
-	int returnValue = cardEffect(mine, 1, gold, -1, &G, 0, 0); 
+	returnValue = cardEffect(mine, 1, gold, -1, &G, 0, 0); 
 	
 	//after game state
 	printf("\nAFTER CARDEFFECT CALL\n");
@@ -175,8 +175,8 @@ int main()
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
-	assert(3, getCost(G.hand[player][1])+3, "Cost of copper card to trash should be three.")
-	assert(6, getCost(choice2), "Cost of gold card to gain should be six")
+	assert(3, getCost(G.hand[player][1])+3, "Cost of copper card to trash should be three.");
+	assert(6, getCost(choice2), "Cost of gold card to gain should be six");
 
 	return 0;
 }
