@@ -67,7 +67,7 @@ int main()
 	printf("\n");
 	
 	//int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
-	cardEffect(mine, 1, silver, -1, &G, 0, 0); 
+	int returnValue = cardEffect(mine, 1, silver, -1, &G, 0, 0); 
 	
 	//after game state
 	printf("\nAFTER CARDEFFECT CALL\n");
@@ -95,6 +95,7 @@ int main()
 
 	//Assertions and results
 	printf("\nTEST RESULTS for Bug 1\n\n");
+	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "\tPlayer's handCount should be four.");
 	assert(0, G.discardCount[player], "\t Player's discard pile should be zero.");
 
