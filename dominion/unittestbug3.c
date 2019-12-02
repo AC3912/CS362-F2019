@@ -96,7 +96,7 @@ int main()
 	printf("\n");
 
 	//Assertions and results
-	printf("\nTEST 1 RESULTS for Bug 1\n\n");
+	printf("\nTEST 1 RESULTS for Bug 3\n\n");
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
@@ -169,7 +169,7 @@ int main()
 	printf("\n");
 
 	//Assertions and results
-	printf("\nTEST 1 RESULTS for Bug 1\n\n");
+	printf("\nTEST 1 RESULTS for Bug 3\n\n");
 	assert(0, returnValue, "Return value should be zero");
 	assert(4, G.handCount[player], "Player's handCount should be four.");
 	assert(0, G.discardCount[player], "Player's discard pile should be zero.");
