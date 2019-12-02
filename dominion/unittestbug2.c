@@ -144,7 +144,7 @@ int main()
 	printf("\n");
 	
 	//int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
-	returnValue = cardEffect(mine, 1, gold, -1, &G, 0, 0); 
+	int returnValue = cardEffect(mine, 1, gold, -1, &G, 0, 0); 
 	
 	//after game state
 	printf("\nAFTER CARDEFFECT CALL\n");
